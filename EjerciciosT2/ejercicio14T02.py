@@ -9,16 +9,16 @@ class DialogoPersonal(QDialog):
         super().__init__()
         self.setWindowTitle("Ventana modal")
 
-        self.boton_pulsado = None
+        self.boton_pulsado = None           #declaramos el botons pulsado del dialogo
 
-        botones = QDialogButtonBox.Yes | QDialogButtonBox.No | QDialogButtonBox.Help
+        botones = QDialogButtonBox.Yes | QDialogButtonBox.No | QDialogButtonBox.Help    #definimos botones y el contenedor
         caja = QDialogButtonBox(botones)
 
         botonSi = caja.button(QDialogButtonBox.Yes)
         botonNo = caja.button(QDialogButtonBox.No)
 
         
-        botonSi.clicked.connect(self.pulsar_si)
+        botonSi.clicked.connect(self.pulsar_si)     #revisar
         botonNo.clicked.connect(self.pulsar_no)
         caja.helpRequested.connect(self.reject)
         
