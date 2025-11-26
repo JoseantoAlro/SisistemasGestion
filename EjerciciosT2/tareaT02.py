@@ -90,10 +90,10 @@ class VentanaPrincipal(QMainWindow):
     # ACCIONES, MENÃš Y TOOLBAR
     # =========================
     def crear_acciones(self):
-        self.accion1 = accion1 = QAction("Limpiar nota", self)
-        self.accion2 = accion2 = QAction("Imprimir nota", self)
-        self.accion3 = accion3 = QAction("Salir", self)
-        self.accion4 = accion4 = QAction("Acerca de...", self)
+        self.accion1 = QAction("Limpiar nota", self)
+        self.accion2 = QAction("Imprimir nota", self)
+        self.accion3 = QAction("Salir", self)
+        self.accion4 = QAction("Acerca de...", self)
         
         
 
@@ -169,7 +169,7 @@ class VentanaPrincipal(QMainWindow):
               "Contenido: \n",
               self.escribir.toPlainText())
         # TODO imprimir la nota completa usando print con comas
-        pass
+        
 
     # =========================
     # SLOTS (LOGICA)
@@ -221,10 +221,9 @@ class VentanaPrincipal(QMainWindow):
 
     def slot_prioridad_cambiada(self, checked):
         if checked:
-            if self.obtener_prioridad_actual()=="Normal":
-                self.barra_estado.showMessage("Prioridad normal")
-            elif self.obtener_prioridad_actual()=="Alta":
-                self.barra_estado.showMessage("Prioridad alta")
+            estado = self.obtener_prioridad_actual()
+            self.barra_estado.showMessage("Prioridad"+estado)
+
 
 
 if __name__ == "__main__":
