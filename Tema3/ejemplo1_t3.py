@@ -38,7 +38,7 @@ class MainWindow(QMainWindow):
             color: #2c3e50;
         }
 
-        QLineedit{
+        QLineEdit{
             background-color: white;
             border: 2px solid #2494db;
             border-radius: 5px;
