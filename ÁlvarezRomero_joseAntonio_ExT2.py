@@ -216,7 +216,7 @@ class VentanaPrincipal(QMainWindow):
         menu_ayuda = barra_menu.addMenu("&Ayuda")
 
         menu_encuesta.addActions([self.accion1,self.accion2,self.accion3]) #asignamos las acciones al menu
-        menu_encuesta.addSeparator  #esto no añade el separador a no ser que añada un separador entre cada accion
+        menu_encuesta.addSeparator()  #esto no añade el separador a no ser que añada un separador entre cada accion
         menu_encuesta.addAction(self.accion4)
         
         menu_ayuda.addAction(self.accion5)
