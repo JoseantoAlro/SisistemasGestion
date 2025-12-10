@@ -81,6 +81,18 @@ class BotonLimpiarAviso(QPushButton):
         self.paleta.setColor(QPalette.Button, QColor("#56EC7B"))
         self.setPalette(self.paleta)
 
+    '''
+        class personalizada(Qloquetoqe)
+        variable = Signal(lo que emite(int, str))
+        def __init__()
+            parametros
+
+            self.clicket/textchange/presed.connect(self.funcion)
+
+        def funcion(self)
+            self.variable.emit(lo que quieres q emita(parametro))
+
+    '''
 
     
 class VentanaPrincipal(QMainWindow):

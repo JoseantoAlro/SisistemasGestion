@@ -39,7 +39,6 @@ class PanelSemaforo(QWidget):
         # --- BOMBILLAS ---
 
 
-
         diametro = ancho * 0.6 #circulos al 60% del ancho del semaforo
         espacio = (alto - 3 * diametro) // 4 #para que no esten pegados los circulos
 
