@@ -31,7 +31,7 @@ class PanelSemaforo(QWidget):
         alto = (self.height()//5)*4
         ancho = (alto//2)
         x=(self.width()-ancho)//2
-        y=(self.height()//5)//2
+        y=(self.height()/-alto)//2
                 #dibujarlo
         painter.drawRect(x, y, ancho, alto)
 
