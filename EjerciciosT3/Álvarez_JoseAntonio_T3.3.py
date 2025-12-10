@@ -21,18 +21,18 @@ class PanelSemaforo(QWidget):
         self.circulo2 = QColor("Gray")
         self.circulo3 = QColor("Gray")
 
-
+        #pintar el semaforo
     def paintEvent(self, event):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.Antialiasing)
         # --- SEMAFORO ---  
         painter.setBrush(QColor("darkGray"))
-
+                #Tamaño y posicion
         alto = (self.height()//5)*4
         ancho = (alto//2)
         x=(self.width()-ancho)//2
         y=(self.height()//5)//2
-
+                #dibujarlo
         painter.drawRect(x, y, ancho, alto)
 
 
@@ -50,7 +50,7 @@ class PanelSemaforo(QWidget):
         EjeY3 = y + espacio * 3 + diametro * 2
 
 
-        # --- BOMBILLA 1 ---
+        # --- BOMBILLA 1 ---  
         painter.setBrush(self.circulo1)
         painter.setPen(Qt.black)
         painter.drawEllipse(EjeX, EjeY1, diametro, diametro)
@@ -65,7 +65,7 @@ class PanelSemaforo(QWidget):
         painter.setPen(Qt.black)
         painter.drawEllipse(EjeX, EjeY3, diametro, diametro)
 
-    def cambiar_color(self):
+    def cambiar_color(self):  #segun el estado actual cambia el color de la bombilla encendida a gris y enciende la siguiente
         if self.__estado_actual == "rojo":
             self.circulo1 = QColor("Gray")
             self.circulo2 = QColor("Yellow")
@@ -81,6 +81,16 @@ class PanelSemaforo(QWidget):
             self.circulo1 = QColor("Red")
             self.__estado_actual = "rojo"
             self.update()
+
+    def reiniciar(self): #cambia a rojo independientemente de la bombilla encendida
+        self.circulo3 = QColor("Gray")
+        self.circulo2 = QColor("Gray")
+        self.circulo1 = QColor("Red")
+        self.__estado_actual = "rojo"
+        self.update()
+
+    def estado(self): #devuelve el estado actual
+        return self.__estado_actual
             
 
        
@@ -96,22 +106,33 @@ class VentanaPrincipal(QMainWindow):
         super().__init__()
         self.setWindowTitle("Indicador con texto")
         self.resize(300,300)
+
+        #elementos
         contenedor = QWidget()
-
         layout = QVBoxLayout()
-
         self.semaforo = PanelSemaforo()
         boton = QPushButton("Cambiar semaforo")
-        boton.clicked.connect(self.cambiar_semaforo)
+        boton_reinicio = QPushButton("Reiniciar")
 
+        #conexiones
+        boton.clicked.connect(self.cambiar_semaforo)
+        boton_reinicio.clicked.connect(self.reiniciar_semaforo)
+        
+        #layouts
         layout.addWidget(self.semaforo)
         layout.addWidget(boton)
-
+        layout.addWidget(boton_reinicio)
         contenedor.setLayout(layout)
         self.setCentralWidget(contenedor)
 
+        
+    #funcion de los botones
     def cambiar_semaforo(self):
         self.semaforo.cambiar_color()
+        print("Estado actual del semaforo: "+self.semaforo.estado())
+
+    def reiniciar_semaforo(self):
+        self.semaforo.reiniciar()
         
 
 app = QApplication([])
