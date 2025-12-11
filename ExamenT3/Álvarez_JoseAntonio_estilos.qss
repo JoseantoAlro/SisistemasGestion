@@ -1,0 +1,22 @@
+/*  QPushButton  */
+QPushButton {
+    background-color: #5e4caf;
+    color: white;
+    border: 1px solid #251c4d;
+    border-radius: 8px;
+    padding: 10px;
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+QPushButton:hover{
+    background-color: #4b3c8b;
+}
+QPushButton:pressed{
+    background-color: #362c64;
+}
+
+QLabel{
+    font-size: 30px;
+    padding: 10px;
+}
+

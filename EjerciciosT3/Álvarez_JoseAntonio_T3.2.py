@@ -51,7 +51,7 @@ class EtiquetaContadorCaracteres(QLabel):
         #en funcion de la cantidad modifica el color del texto
         paleta = self.palette()
         if cantidad/200 < 0.8:
-            paleta.setColor(QPalette.WindowText, QColor("black"))
+            paleta.setColor(QPalette.Base, QColor("black"))
         elif 0.8 <= cantidad/200 <= 1:
             paleta.setColor(QPalette.WindowText, QColor("#D39015"))
         elif 1 < cantidad/200:
