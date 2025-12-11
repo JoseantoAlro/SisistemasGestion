@@ -17,7 +17,7 @@ from PySide6.QtCore import QRect, Qt, Signal
 #Coge los estilos del qss
 app = QApplication(sys.argv)
 app.setStyle("Fusion")
-with open("ExamenT3/Álvarez_JoseAntonio_estilos.qss", "r") as f:
+with open("gitÁlvarez_JoseAntonio_estilos.qss", "r") as f:
     app.setStyleSheet(f.read())
 
 
