@@ -17,7 +17,7 @@ from PySide6.QtCore import QRect, Qt, Signal
 #Coge los estilos del qss
 app = QApplication(sys.argv)
 app.setStyle("Fusion")
-with open("gitÁlvarez_JoseAntonio_estilos.qss", "r") as f:
+with open("ExamenT3/Álvarez_JoseAntonio_estilos.qss", "r") as f:
     app.setStyleSheet(f.read())
 
 
@@ -88,7 +88,7 @@ class EtiquetaAviso(QLabel):
         #no he sabido cambiar el fondo, no se que QPalette. lo cambia.
         paleta = self.palette()
         if cantidad < 4:
-            paleta.setColor(QPalette.set, Qt.black)
+            paleta.setColor(QPalette.WindowText, Qt.black)
         elif 4 <= cantidad < 8:
             paleta.setColor(QPalette.WindowText, QColor("#D39015"))
         elif 8 <= cantidad:
