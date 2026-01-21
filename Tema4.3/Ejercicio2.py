@@ -12,7 +12,7 @@ titulo = dp.HTML(
 
 #########    GRAFICO DE SECTORES    ##########
 # Agrupar por tipo y sumar (para obtener los totales)
-ventas_vendedor = df.groupby("Tipo de producto")["Ventas"].sum()
+ventas_vendedor = df.groupby("Tipo de producto")["Ventas"].sum(numeric_only=True)
 
 # Crear el gráfico de sectores (tarta)
 grafico_matplotlib = ventas_vendedor.plot.pie(
@@ -33,7 +33,7 @@ años_deseados = [2019, 2020, 2021]
 df_filtrado = df[df["Año"].isin(años_deseados)]
 
 # Agrupar los datos por año y sumar las ventas
-ventas_anual = df_filtrado.groupby(["Año"], sort=False).sum()
+ventas_anual = df_filtrado.groupby(["Año"], sort=False).sum(numeric_only=True)
 
 # Crear el gráfico de líneas (Matplotlib a través de Pandas)
 grafico_lineas_matplotlib = ventas_anual.plot(y="Ventas")
@@ -45,7 +45,7 @@ grafico_lineas_datapane = dp.Plot(grafico_lineas_matplotlib)
 #########    GRAFICO DE BARRAS    ##########
 
 # Agrupar los datos por Region y sumar los importes
-ventas_region = df.groupby('Región', as_index=True)[["Ventas"]].sum()
+ventas_region = df.groupby('Región', as_index=True)[["Ventas"]].sum(numeric_only=True)
 
 # Crear el gráfico de barras (Pandas usa Matplotlib internamente) 
 grafico_barras_matplotlib = ventas_region.plot.bar(legend=False)
